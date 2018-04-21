@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ca.steam.dao.UserDao">
+
+    <select id="selectById" resultType="User">
+      SELECT * FROM tb_user WHERE id =  #{id}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO tb_user (user_name,pass_word,tel_phone,email,create_time,update_time,create_user,update_user) valuse(
+        #{userName,jdbcType=VARCHAR},  #{passWord,jdbcType=VARCHAR},    #{telPhone,jdbcType=VARCHAR},   #{email,jdbcType=VARCHAR},
+        now(), now(),    #{createUser,jdbcType=VARCHAR},   #{createUser,jdbcType=VARCHAR}
+        )
+    </insert>
+
+
+</mapper>

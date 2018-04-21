@@ -12,154 +12,28 @@
         <module>steam-common</module>
         <module>steam-domain</module>
         <module>steam-dao</module>
+        <module>steam-manager</module>
         <module>steam-service</module>
-        <module>steam-api</module>
         <module>steam-web</module>
     </modules>
 
-    <properties>
-        <java.version>1.9</java.version>
-        <jedis.version>2.8.0</jedis.version>
-        <dubbo.version>2.5.3</dubbo.version>
-        <zookeeper.version>3.4.6</zookeeper.version>
-        <zkclient.version>0.1</zkclient.version>
-        <spring.version>4.3.5.RELEASE</spring.version>
-        <druid.version>1.0.20</druid.version>
-        <mysql-connector-java.version>5.1.41</mysql-connector-java.version>
-        <mybatis.version>3.4.1</mybatis.version>
-        <github.pagehelper.version>4.1.6</github.pagehelper.version>
-        <mybatis-spring.version>1.3.0</mybatis-spring.version>
-        <jackson.version>2.6.7</jackson.version>
-        <json.verssion>2.8.7</json.verssion>
-        <fastjson.version>1.2.28</fastjson.version>
-        <guava.version>19.0</guava.version>
-        <commons-lang3.version>3.4</commons-lang3.version>
-        <poi.version>3.15</poi.version>
-        <freemarker.version>2.3.23</freemarker.version>
-        <disruptor.version>3.3.7</disruptor.version>
-        <junit.version>4.12</junit.version>
-        <commons-collections4.version>4.1</commons-collections4.version>
-        <commons-fileupload.version>1.2.2</commons-fileupload.version>
-        <commons-io.version>2.4</commons-io.version>
-    </properties>
-
-        <dependencies>
-            <!-- JSON -->
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${json.verssion}</version>
-            </dependency>
-
-            <!-- 数据库 -->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql-connector-java.version}</version>
-                <scope>runtime</scope>
-            </dependency>
-
-            <!-- 数据库连接池 -->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
-                <version>${druid.version}</version>
-            </dependency>
-
-            <!-- MyBatis -->
-            <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis</artifactId>
-                <version>${mybatis.version}</version>
-            </dependency>
-
-            <!-- mybatis/spring整合包 -->
-            <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis-spring</artifactId>
-                <version>${mybatis-spring.version}</version>
-            </dependency>
-
-            <!-- Spring -->
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-beans</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-jdbc</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-tx</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-web</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-webmvc</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-test</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context-support</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-
-            <!-- guava -->
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${commons-lang3.version}</version>
-            </dependency>
-            <!-- 文件上传 -->
-            <dependency>
-                <groupId>commons-fileupload</groupId>
-                <artifactId>commons-fileupload</artifactId>
-                <version>${commons-fileupload.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-io</groupId>
-                <artifactId>commons-io</artifactId>
-                <version>${commons-io.version}</version>
-            </dependency>
-
-        </dependencies>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!-- 修改maven默认的JRE编译版本，1.9代表JRE编译的版本，根据自己的安装版本选择1.7或1.8 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <profiles>
         <!-- 开发环境 -->
         <profile>

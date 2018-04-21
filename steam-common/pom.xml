@@ -7,28 +7,208 @@
         <groupId>com.ca.steam</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>steam-common</artifactId>
-
+    <packaging>pom</packaging>
     <name>steam-common</name>
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <java.version>1.9</java.version>
+        <jedis.version>2.9.0</jedis.version>
+        <dubbo.version>2.5.3</dubbo.version>
+        <zookeeper.version>3.4.6</zookeeper.version>
+        <zkclient.version>0.1</zkclient.version>
+        <spring.version>4.3.5.RELEASE</spring.version>
+        <spring-aspects.version>4.3.15.RELEASE</spring-aspects.version>
+        <druid.version>1.0.20</druid.version>
+        <mysql-connector-java.version>5.1.41</mysql-connector-java.version>
+        <mybatis.version>3.4.1</mybatis.version>
+        <github.pagehelper.version>4.1.6</github.pagehelper.version>
+        <mybatis-spring.version>1.3.0</mybatis-spring.version>
+        <jackson.version>2.6.7</jackson.version>
+        <json.verssion>2.8.7</json.verssion>
+        <fastjson.version>1.2.28</fastjson.version>
+        <guava.version>19.0</guava.version>
+        <commons-lang3.version>3.4</commons-lang3.version>
+        <poi.version>3.15</poi.version>
+        <freemarker.version>2.3.23</freemarker.version>
+        <disruptor.version>3.3.7</disruptor.version>
+        <junit.version>4.12</junit.version>
+        <commons-collections4.version>4.1</commons-collections4.version>
+        <commons-fileupload.version>1.2.2</commons-fileupload.version>
+        <commons-io.version>2.4</commons-io.version>
+        <logging.version>1.7.25</logging.version>
+        <logback.version>1.2.3</logback.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <!-- 数据库 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <!-- 数据库连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!-- MyBatis -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+
+            <!-- mybatis/spring整合包 -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${spring-aspects.version}</version>
+            </dependency>
+            <!-- 分页插件-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${github.pagehelper.version}</version>
+            </dependency>
+
+            <!-- Spring -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <!-- spring mvc-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <!-- guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <!-- 文件上传 -->
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${commons-fileupload.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <!-- Redis-->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+
+            <!-- JSON -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${json.verssion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+            <!-- 日志-->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${logging.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
