@@ -52,6 +52,8 @@
             <param-value>classpath:spring/spring-mvc.xml</param-value>
         </init-param>
     </servlet>
+
+
     <servlet-mapping>
         <servlet-name>mvc</servlet-name>
         <url-pattern>*.do</url-pattern>

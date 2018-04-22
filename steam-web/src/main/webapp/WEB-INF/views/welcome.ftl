@@ -7,11 +7,11 @@
 <h1>${message},${name}</h1>
 
 
-<#--<ol>-->
-        <#--<#list myList as lst>-->
-            <#--<li><a href="javascript:void(0)"> ${lst}</a>  </li>-->
-        <#--</#list>-->
-<#--</ol>-->
+<ol>
+        <#list myList as lst>
+            <li><a href="javascript:void(0)"> ${lst}</a>  </li>
+        </#list>
+</ol>
 
 </body>
 </html>

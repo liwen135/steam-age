@@ -41,6 +41,7 @@
         <commons-io.version>2.4</commons-io.version>
         <logging.version>1.7.25</logging.version>
         <logback.version>1.2.3</logback.version>
+        <log4j.version>2.3</log4j.version>
     </properties>
 
     <dependencyManagement>
@@ -139,7 +140,12 @@
                 <artifactId>spring-context-support</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-
+            <!--freemarker -->
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
+            </dependency>
             <!-- guava -->
             <dependency>
                 <groupId>com.google.guava</groupId>
@@ -206,7 +212,11 @@
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
