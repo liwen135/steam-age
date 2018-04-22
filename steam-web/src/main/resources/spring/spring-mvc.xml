@@ -15,9 +15,8 @@
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="order" value="1" />
         <property name="prefix" value="/WEB-INF/pages/"></property>
-        <property name="suffix" value=".ftl"></property>
+        <property name="suffix" value=".vm"></property>
     </bean>
-
 
 
     <!-- 4、启动注解 -->
