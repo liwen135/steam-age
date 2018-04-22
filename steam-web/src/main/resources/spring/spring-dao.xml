@@ -8,15 +8,11 @@
     <!-- 数据库连接池 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
         <!-- 数据库基本信息配置 -->
-        <property name="url" value="jdbc:mysql://localhost:3306/steam?unicode=utf8"/>
-        <property name="username" value="root"/>
-        <property name="password" value="root"/>
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <!--<property name="url" value="${jdbc.url}"/>-->
-        <!--<property name="username" value="${jdbc.username}"/>-->
-        <!--<property name="password" value="${jdbc.password}"/>-->
-        <!--<property name="driverClassName" value="${jdbc.driver}"/>-->
-        <!--<property name="filters" value="${filters}"/>-->
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="filters" value="${filters}"/>
         <!-- 最大并发连接数 -->
         <property name="maxActive" value="${maxActive}"/>
         <!-- 初始化连接数量 -->

@@ -15,7 +15,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.9</java.version>
+        <java.version>1.8</java.version>
         <jedis.version>2.9.0</jedis.version>
         <dubbo.version>2.5.3</dubbo.version>
         <zookeeper.version>3.4.6</zookeeper.version>
@@ -42,6 +42,8 @@
         <logging.version>1.7.25</logging.version>
         <logback.version>1.2.3</logback.version>
         <log4j.version>2.3</log4j.version>
+        <cglib-nodep.version>2.2</cglib-nodep.version>
+        <reflectasm.version>1.11.3</reflectasm.version>
     </properties>
 
     <dependencyManagement>
@@ -217,6 +219,18 @@
                 <artifactId>log4j-core</artifactId>
                 <version>${log4j.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib-nodep</artifactId>
+                <version>${cglib-nodep.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.esotericsoftware</groupId>
+                <artifactId>reflectasm</artifactId>
+                <version>${reflectasm.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

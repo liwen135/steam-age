@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>steam-common</module>
+        <module>steam-utils</module>
         <module>steam-domain</module>
         <module>steam-dao</module>
         <module>steam-manager</module>
@@ -17,17 +18,23 @@
         <module>steam-web</module>
     </modules>
 
+
     <build>
+        <finalName>steam-age</finalName>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test</testSourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <!-- 修改maven默认的JRE编译版本，1.9代表JRE编译的版本，根据自己的安装版本选择1.7或1.8 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
+                    <!-- 设置JDK版本 -->
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>

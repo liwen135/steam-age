@@ -5,6 +5,7 @@ import com.ca.steam.dao.UserDao;
 
 import com.ca.steam.manager.UserManager;
 import com.ca.steam.service.UserService;
+import com.google.common.base.Preconditions;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -21,6 +22,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Integer saveUser(User user) {
+        Preconditions.checkNotNull(user);
         return userManager.insertUser(user);
     }
 
