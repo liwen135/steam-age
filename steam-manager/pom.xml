@@ -11,7 +11,7 @@
 
     <artifactId>steam-manager</artifactId>
     <packaging>jar</packaging>
-    <name>steam-service</name>
+    <name>steam-manager</name>
 
     <dependencies>
         <dependency>

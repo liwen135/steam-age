@@ -13,11 +13,7 @@
     <packaging>jar</packaging>
     <name>steam-service</name>
     <dependencies>
-        <dependency>
-            <groupId>com.ca.steam</groupId>
-            <artifactId>steam-dao</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+
         <dependency>
             <groupId>com.ca.steam</groupId>
             <artifactId>steam-manager</artifactId>
