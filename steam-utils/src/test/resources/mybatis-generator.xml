@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<generatorConfiguration>
+    <context id="DB2Tables" targetRuntime="MyBatis3Simple">
+        <!--//去除生成的注释-->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!--//数据库连接信息配置-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/sun"
+                        userId="root" password="root">
+        </jdbcConnection>
+        <!--//javaBean的生成策略-->
+        <javaModelGenerator targetPackage="com.ca.steam.bean"  targetProject=".\src\test\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!--//映射文件的生成策略-->
+        <sqlMapGenerator targetPackage="mybatis.mapper"   targetProject=".\src\test\resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        <!--//dao接口java文件的生成策略-->
+        <javaClientGenerator type="XMLMAPPER"  targetPackage="com.ca.steam.dao"
+                             targetProject=".\src\test\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+        <!--//数据表与javaBean的映射-->
+        <table tableName="t_student" domainObjectName="Student"></table>
+
+    </context>
+</generatorConfiguration>
